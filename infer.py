@@ -57,6 +57,7 @@ def get_args():
     parser.add_argument('--use_rpb', action='store_true', help='relative positional bias')
     parser.add_argument('--no_use_rpb', action='store_false', dest='use_rpb')
     parser.set_defaults(use_rpb=True)
+    parser.add_argument('--checkpoint', default=None, type=str, help='Path to pretrained checkpoint')
     parser.add_argument('--head_mode', type=str, default='cnn', help='head_mode', choices=['linear', 'cnn', 'locattn'])
     parser.add_argument('--drop_path', type=float, default=0.0, help='Drop path rate')
     parser.add_argument('--mask_cent', action='store_true', help='mask_cent')
@@ -112,6 +113,7 @@ def get_model(args):
         avg_hint=args.avg_hint,
         head_mode=args.head_mode,
         mask_cent=args.mask_cent,
+        checkpoint_path = args.checkpoint
     )
     return model
 

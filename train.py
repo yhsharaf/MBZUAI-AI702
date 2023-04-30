@@ -31,10 +31,11 @@ def get_args():
     parser = argparse.ArgumentParser('iColoriT training scripts', add_help=False)
     # Training
     parser.add_argument('--exp_name', default='', type=str)
-    parser.add_argument('--epochs', default=100, type=int)
+    #was default = 1000
+    parser.add_argument('--epochs', default=200, type=int)
     parser.add_argument('--batch_size', default=32, type=int)
     parser.add_argument('--num_workers', default=8, type=int)
-    parser.add_argument('--save_ckpt_freq', default=5, type=int)
+    parser.add_argument('--save_ckpt_freq', default=20, type=int)
     parser.add_argument('--seed', default=4885, type=int)
     parser.add_argument('--save_args_pkl', action='store_true', help='Save args as pickle file')
     parser.add_argument('--no_save_args_pkl', action='store_false', dest='save_args_pkl', help='')
@@ -59,6 +60,7 @@ def get_args():
 
     # Model
     parser.add_argument('--model', default='icolorit_base_4ch_patch16_224', type=str, help='Name of model to train')
+    parser.add_argument('--checkpoint', default=None, type=str, help='Path to pretrained checkpoint')
     parser.add_argument('--use_rpb', action='store_true', help='relative positional bias')
     parser.add_argument('--no_use_rpb', action='store_false', dest='use_rpb')
     parser.set_defaults(use_rpb=True)
@@ -73,14 +75,14 @@ def get_args():
     parser.add_argument('--avg_hint', action='store_true', help='avg hint')
     parser.add_argument('--no_avg_hint', action='store_false', dest='avg_hint')
     parser.set_defaults(avg_hint=True)
-    parser.add_argument('--val_hint_list', default=[1, 10, 100], nargs='+')
+    parser.add_argument('--val_hint_list', default=[1, 2, 5 ,10, 20, 50, 100, 200], nargs='+')
 
     # Learning rate scheduling
-    parser.add_argument('--lr', type=float, default=5e-4, help='learning rate')
-    parser.add_argument('--warmup_lr', type=float, default=1e-6, help='warmup learning rate')
+    parser.add_argument('--lr', type=float, default=5e-6, help='learning rate')
+    parser.add_argument('--warmup_lr', type=float, default=5e-6, help='warmup learning rate')
     parser.add_argument('--warmup_epochs', type=int, default=3, help='epochs to warmup LR, if scheduler supports')
     parser.add_argument('--warmup_steps', type=int, default=-1, help='steps to warmup LR, priority: steps -> epochs')
-    parser.add_argument('--min_lr', type=float, default=1e-5,
+    parser.add_argument('--min_lr', type=float, default=1e-6,
                         help='lower lr bound for cyclic schedulers that hit 0 (1e-5)')
 
     # Optimizer
@@ -119,6 +121,7 @@ def get_model(args):
         avg_hint=args.avg_hint,
         head_mode=args.head_mode,
         mask_cent=args.mask_cent,
+        checkpoint_path = args.checkpoint
     )
     return model
 
@@ -159,7 +162,7 @@ def main(args):
     else:
         sampler_train = RandomSampler(dataset_train)
         sampler_val = RandomSampler(dataset_val)
-
+    
     if global_rank == 0 and args.log_dir is not None:
         log_writer = utils.TensorboardLogger(log_dir=args.log_dir)
     else:
