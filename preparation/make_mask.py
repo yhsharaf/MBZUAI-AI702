@@ -10,9 +10,9 @@ def make_fixed_hint():
     parser = argparse.ArgumentParser(description="Making fixed hint set for interactive colorization")
     parser.add_argument('--img_dir', type=str)
     parser.add_argument('--hint_dir', type=str)
-    parser.add_argument('--img_size', type=int, defulat=224)
-    parser.add_argument('--hint_size', type=int, defulat=2)
-    parser.add_argument('--seed', type=int, defulat=1234)
+    parser.add_argument('--img_size', type=int, default=224)
+    parser.add_argument('--hint_size', type=int, default=2)
+    parser.add_argument('--seed', type=int, default=1234)
     args = parser.parse_args()
 
     assert args.img_size % args.hint_size == 0
