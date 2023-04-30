@@ -1,6 +1,6 @@
-# iColoriT (WACV 2023) Official Implementation
+# iColoriT (WACV 2023) Non-Official Implementation
 
-This is the official PyTorch implementation of the paper: [iColoriT: Towards Propagating Local Hint to the Right Region in Interactive Colorization by Leveraging Vision Transformer](https://arxiv.org/abs/2207.06831).
+This is the Non-official PyTorch implementation of the paper: [iColoriT: Towards Propagating Local Hint to the Right Region in Interactive Colorization by Leveraging Vision Transformer](https://arxiv.org/abs/2207.06831).
 
 > iColoriT is pronounced as "<em>I color it</em> ".
 
