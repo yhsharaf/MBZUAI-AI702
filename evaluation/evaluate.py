@@ -173,7 +173,7 @@ def evaluate_from_images(args):
     random.seed(4885)
 
     dataset = GtPredImageDataset(args.gt_dir, args.pred_dir, args.gray_file_list_txt)
-    dataloader = DataLoader(dataset, batch_size=16, num_workers=8, drop_last=False, shuffle=False)
+    dataloader = DataLoader(dataset, batch_size=16, num_workers=0, drop_last=False, shuffle=False)
     avgmeter = AverageMeter(psnr=0., lpips=0., boundary_psnr=0., pev=0.)
     loss_fn_vgg = lpips.LPIPS(net='vgg').to('cuda')
 
