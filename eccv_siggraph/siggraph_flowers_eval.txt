@@ -1,0 +1,7 @@
+GPU: Quadro RTX 6000
+Average PSNR: 21.2448
+Average SSIM: 0.9203
+Average LPIPS: 0.1124
+
+Evaluation Summary
+Total evaluation time: 1.0 minutes 23.304 seconds

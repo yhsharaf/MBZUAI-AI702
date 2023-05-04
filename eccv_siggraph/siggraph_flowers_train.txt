@@ -1,0 +1,7 @@
+GPU: NVIDIA GeForce RTX 4090
+Average PSNR: 28.3183
+Average SSIM: 0.9783
+Average LPIPS: 0.0562
+
+Training Summary
+Total training time: 1187.0 minutes 4.303 seconds

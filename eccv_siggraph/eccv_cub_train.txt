@@ -1,0 +1,7 @@
+GPU: Quadro RTX 6000
+Average PSNR: 29.0876
+Average SSIM: 0.9835
+Average LPIPS: 0.0661
+
+Training Summary
+Total training time: 484.0 minutes 53.074 seconds
