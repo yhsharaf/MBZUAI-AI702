@@ -1,11 +1,12 @@
-# iColoriT (WACV 2023) Non-Official Implementation
+# iColoriT, SIGGRAPH, ECCV Non-Official Implementation
 
-This is the Non-official PyTorch implementation of the paper: [iColoriT: Towards Propagating Local Hint to the Right Region in Interactive Colorization by Leveraging Vision Transformer](https://arxiv.org/abs/2207.06831).
-
-> iColoriT is pronounced as "<em>I color it</em> ".
+This is the Non-official PyTorch implementation of the Papers:<br>
+[iColoriT: Towards Propagating Local Hint to the Right Region in Interactive Colorization by Leveraging Vision Transformer](https://arxiv.org/abs/2207.06831)<br>
+[SIGGRAPH: Real-Time User-Guided Image Colorization with Learned Deep Priors](https://arxiv.org/abs/1705.02999)<br>
+[ECCV: Colorful Image Colorization](http://arxiv.org/abs/1603.08511)
 
 <p align="center">
-  <img width="90%" src="docs/iColoriT_demo.gif">
+  <img width="90%" src="iColoriT/docs/iColoriT_demo.gif">
 </p>
 
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/icolorit-towards-propagating-local-hint-to/point-interactive-image-colorization-on)](https://paperswithcode.com/sota/point-interactive-image-colorization-on?p=icolorit-towards-propagating-local-hint-to)  
@@ -33,10 +34,13 @@ Checkpoints for iColoriT models are available in the links below.
 
 |  	| Backbone 	| Link 	|
 |:---:	|:---:	|:---:	|
-| iColoriT	| ViT-B 	| [iColoriT (Google Drive)](https://drive.google.com/file/d/16i9ulB4VRbFLbLlAa7UjIQR6J334BeKW/view?usp=sharing)	|
-| iColoriT-S 	| ViT-S 	| [iColoriT-S (Google Drive)](https://drive.google.com/file/d/1yKwFTQGDBvr9B7NIyXhxQH0K-BNlCs4L/view?usp=sharing) 	|
-| iColoriT-T 	| ViT-Ti 	| [iColoriT-T (Google Drive)](https://drive.google.com/file/d/1GMmjfxAoM95cABwlZD8555WxI7nmIZrR/view?usp=sharing)	|
-
+| iColoriT-ImageNet	| ViT-B 	| [iColoriT-ImageNet (Google Drive)](https://drive.google.com/file/d/16i9ulB4VRbFLbLlAa7UjIQR6J334BeKW/view?usp=sharing)	|
+| iColoriT-CUB 	| ViT-B 	| [iColoriT-CUB (Google Drive)](https://drive.google.com/file/d/1yKwFTQGDBvr9B7NIyXhxQH0K-BNlCs4L/view?usp=sharing) 	|
+| iColoriT-OxfordFlowers 	| ViT-B 	| [iColoriT-OxfordFlowers (Google Drive)](https://drive.google.com/file/d/1GMmjfxAoM95cABwlZD8555WxI7nmIZrR/view?usp=sharing)	|
+| ECCV-CUB 	| CNN 	| [ECCV-CUB (Google Drive)](https://drive.google.com/file/d/1GMmjfxAoM95cABwlZD8555WxI7nmIZrR/view?usp=sharing)	|
+| ECCV-OxfordFlowers 	| CNN 	| [ECCV-OxfordFlowers (Google Drive)](https://drive.google.com/file/d/1GMmjfxAoM95cABwlZD8555WxI7nmIZrR/view?usp=sharing)	|
+| SIGGRAPH-CUB 	| CNN 	| [SIGGRAPH-CUB (Google Drive)](https://drive.google.com/file/d/1GMmjfxAoM95cABwlZD8555WxI7nmIZrR/view?usp=sharing)	|
+| SIGGRAPH-OxfordFlowers 	| CNN 	| [SIGGRAPH-OxfordFlowers (Google Drive)](https://drive.google.com/file/d/1GMmjfxAoM95cABwlZD8555WxI7nmIZrR/view?usp=sharing)	|
 
 ## Testing
 
@@ -44,7 +48,7 @@ Checkpoints for iColoriT models are available in the links below.
 
 Our code is implemented in Python 3.8, torch>=1.8.2
 ```
-git clone https://github.com/pmh9960/iColoriT.git
+git clone https://github.com/yhsharaf/MBZUAI-AI702.git
 pip install -r requirements.txt
 ```
 
@@ -92,7 +96,7 @@ bash scripts/train.sh
 
 
 
-## Citation
+## Citations
 
 ```
 @InProceedings{Yun_2023_WACV,
@@ -102,5 +106,43 @@ bash scripts/train.sh
     month     = {January},
     year      = {2023},
     pages     = {1787-1796}
+}
+```
+```
+@article{DBLP:journals/corr/ZhangZIGLYE17,
+  author       = {Richard Zhang and
+                  Jun{-}Yan Zhu and
+                  Phillip Isola and
+                  Xinyang Geng and
+                  Angela S. Lin and
+                  Tianhe Yu and
+                  Alexei A. Efros},
+  title        = {Real-Time User-Guided Image Colorization with Learned Deep Priors},
+  journal      = {CoRR},
+  volume       = {abs/1705.02999},
+  year         = {2017},
+  url          = {http://arxiv.org/abs/1705.02999},
+  eprinttype    = {arXiv},
+  eprint       = {1705.02999},
+  timestamp    = {Wed, 14 Aug 2019 08:23:33 +0200},
+  biburl       = {https://dblp.org/rec/journals/corr/ZhangZIGLYE17.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+```
+```
+@article{DBLP:journals/corr/ZhangIE16,
+  author       = {Richard Zhang and
+                  Phillip Isola and
+                  Alexei A. Efros},
+  title        = {Colorful Image Colorization},
+  journal      = {CoRR},
+  volume       = {abs/1603.08511},
+  year         = {2016},
+  url          = {http://arxiv.org/abs/1603.08511},
+  eprinttype    = {arXiv},
+  eprint       = {1603.08511},
+  timestamp    = {Wed, 14 Aug 2019 08:23:33 +0200},
+  biburl       = {https://dblp.org/rec/journals/corr/ZhangIE16.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
 }
 ```
